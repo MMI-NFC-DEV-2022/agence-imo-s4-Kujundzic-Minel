@@ -10,6 +10,8 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/SimpleView">Simple</RouterLink>
         <RouterLink to="/FormkitView">Formkit</RouterLink>
         <RouterLink to="/maison">Affichage maison avec Supabase</RouterLink>
+        <RouterLink to="/login-logout">Login/Logout</RouterLink>
+        <RouterLink to="/FormkitEditView">Formkit Edit</RouterLink>
       </nav>
     </div>
   </header>
