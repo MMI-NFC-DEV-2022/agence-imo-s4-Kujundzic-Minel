@@ -12,6 +12,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/maison">Affichage maison avec Supabase</RouterLink>
         <RouterLink to="/login-logout">Login/Logout</RouterLink>
         <RouterLink to="/FormkitEditView">Formkit Edit</RouterLink>
+        <RouterLink to="/quartier">Quartier</RouterLink>
       </nav>
     </div>
   </header>
