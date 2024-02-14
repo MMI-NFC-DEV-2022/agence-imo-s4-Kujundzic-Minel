@@ -13,6 +13,7 @@
   "dependencies": {
     "@formkit/vue": "^1.5.5",
     "@supabase/supabase-js": "^2.39.3",
+    "lowdash": "^1.2.0",
     "unplugin-vue": "^5.0.3",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5"
@@ -25,6 +26,7 @@
     "autoprefixer": "^10.4.17",
     "npm-run-all2": "^6.1.1",
     "postcss": "^8.4.34",
+    "supabase": "^1.142.2",
     "tailwindcss": "^3.4.1",
     "typescript": "~5.3.0",
     "unplugin-vue-router": "^0.7.0",
