@@ -10,15 +10,16 @@ const router = useRouter()
 const quartier = ref({})
 
 async function upsertQuartier(dataForm, node) {
+  console.log("dataForm : ",dataForm);
   const { data, error } = await supabase.from('quartier').upsert(dataForm).select()
   if (error) {
     node.setErrors([error.message])
   } else {
     node.setErrors([])
-    console.log("id : ",data[0].id);
+    console.log("id dans upsert : ",data[0].id);
     
     // Mise à jour du nom de route et paramètres dans router.push
-    router.push({ name: "/quartier/edit/[[id]]", params: { id: data[0].id } });
+    router.push({ name: "/quartier/edit/[[id]]", params: { id: data[0].id } , force: true});
   }
 }
 
@@ -42,10 +43,13 @@ const { data: listeCommune, error } = await supabase
   .select("*");
 if (error) console.log("n'a pas pu charger la table Commune :", error);
 // Les convertir par `map` en un tableau d'objets {value, label} pour FormKit
-const optionsCommune = listeCommune?.map((commune) => ({
-  value: commune.id_commune,
-  label: commune.nomCommune,
-}));
+const optionsCommune = listeCommune?.map((commune) => {
+  console.log("commune : ",commune);
+return ({
+value: commune.id,
+label: commune.nomCommune,
+});
+});
 
 
 async function supprimerQuartier() {
