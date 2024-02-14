@@ -12,6 +12,6 @@ import { type Database } from '@/supabase-types';
 <template>
             <hr/>
             <div class="w-full justify-between flex">
-                <div class="flex py-4 gap-4"><Icon1/> {{nomQuartier}} Commune</div>
+                <div class="flex py-4 gap-4"><Icon1/> {{nomQuartier}} Commune </div>
             </div>
 </template>
