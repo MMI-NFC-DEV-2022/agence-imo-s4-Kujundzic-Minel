@@ -47,6 +47,24 @@ const optionsCommune = listeCommune?.map((commune) => ({
   label: commune.nomCommune,
 }));
 
+
+async function supprimerQuartier() {
+  const { data, error } = await supabase
+    .from("quartier")
+    .delete()
+    .match({ id: quartier.value.id });
+  if (error) {
+    console.error(
+      "Erreur à la suppression de ",
+      quartier.value,
+      "erreur :",
+      error
+    );
+  } else {
+    router.push("/quartier");
+  }
+}
+
 </script>
 
 <template>
@@ -79,5 +97,29 @@ const optionsCommune = listeCommune?.map((commune) => ({
     </div>
   </div>
 
-
+  <button
+        type="button"
+        v-if="quartier.id"
+        @click="($refs.dialogSupprimer as any).showModal()"
+        class="focus-style justify-self-end rounded-md bg-red-500 p-2 shadow-sm"
+      >
+        Supprimer l'offre
+      </button>
+      <dialog
+        ref="dialogSupprimer"
+        @click="($event.currentTarget as any).close()"
+      >
+        <button
+          type="button"
+          class="focus-style justify-self-end rounded-md bg-blue-300 p-2 shadow-sm"
+        >
+          Annuler</button
+        ><button
+          type="button"
+          @click="supprimerQuartier()"
+          class="focus-style rounded-md bg-red-500 p-2 shadow-sm"
+        >
+          Confirmer suppression
+        </button>
+      </dialog>
 </template>
